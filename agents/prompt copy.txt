@@ -1,0 +1,15 @@
+
+2. Process the PDF file:  
+   - Check the number of pages.  
+   - Split it into multiple files named `"dummy_001.pdf"`, `"dummy_002.pdf"`, etc.  
+
+3. Modify the split files:  
+   - If the index of the split file is a prime number, rotate it 90 degrees and overwrite the original file.  
+
+4. Create a watermark:  
+   - Text: `"I Love Potatoes"`  
+   - Save it as `"C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\.sandbox\test1\watermark.png"`.  
+
+5. Apply the watermark:  
+   - Add it to all files in the folder:  
+     `"C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\.sandbox\test1"`.  

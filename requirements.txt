@@ -1,0 +1,9 @@
+# Agents
+smolagents>=1.10.0
+smolagents[openai]>=1.10.0
+
+# Tools
+docling>=2.26.0
+PyPDF2>=3.0.1
+reportlab>=4.3.1
+ffmpeg>=1.4.0
