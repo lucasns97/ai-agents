@@ -28,7 +28,7 @@ def get_agent():
             PdfEditor.get_agent(),
             ImageCreator.get_agent()
         ],
-        additional_authorized_imports=["os", "shutil"],
+        additional_authorized_imports=["os", "shutil", "PyPDF2", "docx", "bs4", "requests"],
         planning_interval=5,
         verbosity_level=2,
         max_steps=15,

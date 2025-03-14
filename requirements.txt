@@ -7,3 +7,4 @@ docling>=2.26.0
 PyPDF2>=3.0.1
 reportlab>=4.3.1
 ffmpeg>=1.4.0
+docx>=0.2.4
