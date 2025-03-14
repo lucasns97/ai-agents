@@ -4,6 +4,7 @@ import sys
 # Add parent directory to path BEFORE other imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import ffmpeg  # Import ffmpeg-python package
 from docling.document_converter import DocumentConverter
 from smolagents import Tool
 from utils.logging import get_logger

@@ -1,19 +1,22 @@
 from smolagents import ToolCallingAgent, load_tool, OpenAIServerModel, Tool
 from utils.conts import OPENAI_API_KEY
 from PIL import Image
+from typing import Union
 import os
+import uuid
 
 class SaveImageTool(Tool):
     name = "save_image_tool"
     description = (
-        "A tool for saving a PIL image to the specified path. "
-        "Provide the PIL image object and the desired filename including extension. "
-        "If no filename is provided, a unique filename will be generated."
+        "A tool for saving a PIL image or an image from a specified "
+        "file path to a given destination. Provide a PIL image object "
+        "or its filepath and the desired filename, including the extension. "
+        "If no filename is specified, a unique one will be generated automatically."
     )
     inputs = {
         "image": {
             "type": "object",
-            "description": "A PIL Image object to be saved.",
+            "description": "A PIL Image object or the path to an image file to be saved.",
         },
         "filename": {
             "type": "string",
@@ -27,24 +30,26 @@ class SaveImageTool(Tool):
         }
     }
     output_type = "string"
-
-    def forward(self, image: Image, filename: str = None, output_dir: str = None) -> str:
+    def forward(self, image: Union[Image.Image, str], filename: str = None, output_dir: str = None) -> str:
         """
         Saves a PIL image to the specified directory.
         
         Parameters:
-            image: A PIL Image object to be saved.
+            image: A PIL Image object or the path to an image file to be saved [required].
             filename: Optional. The desired filename including extension (e.g., 'my_image.png').
-                    If not provided, a unique filename will be generated.
-            output_dir: Directory where the image should be saved. Defaults to current working directory.
+                    If not provided, a unique filename will be generated [optional].
+            output_dir: Directory where the image should be saved. Defaults to current working directory [optional].
             
         Returns:
             str: A message containing the full path to the saved image file.
         """
         try:
             # Check if the image is a valid PIL Image
-            if not hasattr(image, "save"):
-                return "Error: Provided object is not a valid PIL Image."
+            try:
+                if not hasattr(image, "save"):
+                    image = Image.open(image)
+            except Exception as e:
+                return f"Error saving image (image provided: {image}): {str(e)}"
             
             # Generate a unique filename if none is provided
             if filename is None:

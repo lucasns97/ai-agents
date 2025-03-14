@@ -1,18 +1,23 @@
-1. Duplicate the file:  
-   - Source: `"C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\samples\sample_pages.pdf"`  
-   - Destination: `"C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\.sandbox\test1\dummy.pdf"`  
+This folder "C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\.sandbox\folder" is a mess! Folders should be named as "images", "sheets" and "pdfs" and files should be named as "file_##.{ext}" where ## is a number from 01 to 99 in each folder. Apply recursively to all subfolders.
 
-2. Process the new PDF file:  
-   - Check the number of pages.  
-   - Split (into the same dir of the file) it into multiple files named `"dummy_001.pdf"`, `"dummy_002.pdf"`, etc.  
+When all files are correctly arranged. For each created folder, create a image with the following text: "Folder: {folder_name} contains {number_of_files} files" and save it as "folder.jpg" in the folder.
 
-3. Modify the split files:  
-   - If the index of the split file is a prime number, rotate it 90 degrees and overwrite the original file.  
+- Pdf folder image should also have a frog holding the PDF icon.
+- Excel folder image should also have a cat holding the Excel icon.
+- Image folder image should also have a dog holding the Image icon.
 
-4. Create a watermark:  
-   - Text: `"I Love Potatoes"`  
-   - Save it as `"C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\.sandbox\test1\watermark.png"`.  
+The final structure should be:
 
-5. Apply the watermark:  
-   - Add it to all files in the folder:  
-     `"C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\.sandbox\test1"`.  
+folder
+├── images
+|   ├── folder.jpg
+│   ├── file_01.png
+│   └── ...
+├── pdfs
+|   ├── folder.jpg
+│   ├── file_01.pdf
+│   └── ...
+└── sheets
+    ├── folder.jpg
+    ├── file_01.xlsx
+    └── ...
