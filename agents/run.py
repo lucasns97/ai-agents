@@ -128,12 +128,12 @@ if __name__ == "__main__":
     
     # FileOrchestrator agent test
     agent = load_agent("FileOrchestrator")
-    prompt_path = os.path.join(os.path.dirname(__file__), "prompt.txt")
-    logger.info(f"Loading prompt from file: {prompt_path}")
-    with open(prompt_path, "r") as f:
-        prompt = f.read()
-    logger.info(f"Prompt loaded:\n{prompt}")
-    response = agent.run(prompt)
+    # prompt_path = os.path.join(os.path.dirname(__file__), "prompt.txt")
+    # logger.info(f"Loading prompt from file: {prompt_path}")
+    # with open(prompt_path, "r") as f:
+    #     prompt = f.read()
+    # logger.info(f"Prompt loaded:\n{prompt}")
+    # response = agent.run(prompt)
     # init_dir = r'C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\samples\sample_copy'
     # output_dir = r'C:\Users\Lucas\OneDrive\Documentos\Projetos\Sandbox\ai-agents\samples\sample_copy2'
     # json_filename = "image_data.json"
@@ -143,4 +143,4 @@ if __name__ == "__main__":
     #     "from the duplicated files, convert all images to dictionary format and save them as JSON "
     #     f"files in the same directory as '{json_filename}'"
     # )
-    # logger.info(agent.visualize())
+    logger.info(agent.visualize())
