@@ -1,5 +1,5 @@
-import argparse
 import logging
+import os
 import sys
 
 # ANSI escape sequences for colors
@@ -66,14 +66,9 @@ def get_logger(name=None):
     """
     return logging.getLogger(name)
 
-# Parse command-line arguments for log level
-parser = argparse.ArgumentParser(description="Colored Logging Example")
-parser.add_argument("--log-level", default="INFO",
-                    help="Set logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)")
-args = parser.parse_args()
-
-# Initialize logging with the chosen level
-logger = setup_logging(args.log_level)
+# Initialize logging using environment variable or default INFO
+_log_level = os.getenv("LOG_LEVEL", "INFO")
+logger = setup_logging(_log_level)
 
 if __name__ == "__main__":
 
